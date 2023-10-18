@@ -7,7 +7,7 @@ const mongoose = require("mongoose");
 // TODO: Adequar o schema para a própria aplicação
 
 const Model = new mongoose.Schema({
-  uid: { type: String, unique: true },
+  uid: { type: String, unique: true, default: new mongoose.Types.ObjectId() },
   title: { type: String, required: [true, "Title is required"] },
   gender: { type: String, required: [true, "Gender is required"] },
   author: { type: String, required: [true, "Author is required"] },

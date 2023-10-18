@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 
 //TODO: Criar controllers da aplicação
 const getBooks = async (req, res) => {
-  const books = await service.getBooks();
+  const books = await service.getAll();
 
   if (books.length === 0) {
     res.status(204).send({ message: "Sem livros cadastrados" });
@@ -27,7 +27,23 @@ const getBookById = async (req, res) => {
   res.send(book);
 };
 
+const createBook = async (req, res) => {
+  const data = req.body;
+  try {
+    const dataSubmitted = await service.createBook(data);
+    res.status(200).send({
+      message: "Livro criado com sucesso!",
+      data: dataSubmitted,
+    });
+  } catch (err) {
+    res.status(400).send({
+      message: err.message,
+    });
+  }
+};
+
 module.exports = {
   getBooks,
   getBookById,
+  createBook,
 };

@@ -9,7 +9,12 @@ const getById = async (id) => {
   return await model.findById(id);
 };
 
+const createBook = async (book) => {
+  return await model.create(book);
+};
+
 module.exports = {
   getAll,
   getById,
+  createBook,
 };
