@@ -2,7 +2,7 @@
   "name": "ReprogramaBE_CRUDConectadas",
   "version": "1.0.0",
   "description": "BackEnd de uma Hamburgueria",
-  "main": "index.js",
+  "main": "cardapios.js",
   "scripts": {
     "start": "node bin/server",
     "dev": "nodemon bin/server",

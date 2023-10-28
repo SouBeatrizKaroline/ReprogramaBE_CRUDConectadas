@@ -1,15 +1,16 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
+require('dotenv').config()
 
-const connection = (url, user, pass, data) => {
-  mongoose.connect(`${url}/${data}` , {
-    user: user,
-    pass: pass,
-    useNewUrlParser: true
-  }).then(() => {
-    console.log('Banco de dados MongoDB conectado')
-  }).catch((error) => {
-    console.log(`Banco não conectado, ${error}`)
-  })  
+async function conectaBancoDeDados() {
+    try {
+        console.log('Conexão com o banco de dados iniciou')
+
+        await mongoose.connect(process.env.MONGO_URL)
+
+        console.log('Conexão com o banco de dados feita com sucesso!')
+    } catch(erro) {
+        console.log(erro)
+    }
 }
 
-module.exports = connection;
+module.exports = conectaBancoDeDados
