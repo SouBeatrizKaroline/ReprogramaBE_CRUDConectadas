@@ -1,38 +1,38 @@
-const service = require("../services/BookService");
+const service = require("../services/cardapioModelService");
 const mongoose = require("mongoose");
 
 //TODO: Criar controllers da aplicação
-const getBooks = async (req, res) => {
-  const books = await service.getAll();
+const getcardapioModels = async (req, res) => {
+  const cardapios = await service.getAll();
 
-  if (books.length === 0) {
-    res.status(204).send({ message: "Sem livros cadastrados" });
+  if (cardapios.length === 0) {
+    res.status(204).send({ message: "Sem itens cadastrados" });
   } else {
-    res.status(200).send(books);
+    res.status(200).send(cardapios);
   }
 };
 
-const getBookById = async (req, res) => {
+const getcardapioModelById = async (req, res) => {
   const id = req.params.id;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
-    res.status(400).send({ message: "Id é inválido, verifique a informação!" });
+    res.status(400).send({ message: "O Id é inválido, verifique a informação!" });
     return;
   }
-  const book = await service.getById(id);
-  if (!book) {
-    res.status(404).send({ message: "Livro não foi encontrado!" });
+  const cardapio = await service.getById(id);
+  if (!cardapio) {
+    res.status(404).send({ message: "O Item não foi encontrado!" });
     return;
   }
-  res.send(book);
+  res.send(cardapio);
 };
 
-const createBook = async (req, res) => {
+const createcardapioModel = async (req, res) => {
   const data = req.body;
   try {
-    const dataSubmitted = await service.createBook(data);
+    const dataSubmitted = await service.createcardapioModel(data);
     res.status(200).send({
-      message: "Livro criado com sucesso!",
+      message: "Item criado com sucesso!",
       data: dataSubmitted,
     });
   } catch (err) {
@@ -43,7 +43,7 @@ const createBook = async (req, res) => {
 };
 
 module.exports = {
-  getBooks,
-  getBookById,
-  createBook,
+  getcardapioModels,
+  getcardapioModelById,
+  createcardapioModel,
 };

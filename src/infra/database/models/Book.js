@@ -1,29 +1,23 @@
 const mongoose = require("mongoose");
 
-
-// OBS: Esse código serve como exemplo, vocês devem adaptar para o que vocês criaram
-
-
-// TODO: Adequar o schema para a própria aplicação
-
 const Model = new mongoose.Schema({
   uid: { type: String, unique: true, default: new mongoose.Types.ObjectId() },
-  title: { type: String, required: [true, "Title is required"] },
-  gender: { type: String, required: [true, "Gender is required"] },
-  author: { type: String, required: [true, "Author is required"] },
-  isbn: {
+  item: { type: String, required: [true, "O tipo de Item é Obrigatório"] },
+  preco: { type: String, required: [true, "O Preço é Obrigatório"] },
+  descricao: { type: String, required: [true, "A Descrição é Obrigatória"] },
+  codigo: {
     type: String,
     validate: {
       validator: function (value) {
         return /^(?=(?:\D*\d){10}(?:(?:\D*\d){3})?$)[\d-]+$/.test(value);
       },
-      message: (props) => `${props.value} is not a valid isbn!`,
+      message: (props) => `${props.value} não é um codigo válido!`,
     },
   },
-  cover: { type: String, required: [true, "Cover is required"] },
+  cover: { type: String, required: [true, "A imagem é obrigatória"] },
   createdAt: { type: Date, default: Date.now() },
 });
 
-const Book = mongoose.model("books", Model);
+const Cardapio = mongoose.model("cardapios", Model);
 
-module.exports = Book;
+module.exports = Cardapio;

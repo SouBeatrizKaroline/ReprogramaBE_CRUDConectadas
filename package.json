@@ -1,7 +1,7 @@
 {
-  "name": "modelo-crud-reprograma-backend",
+  "name": "ReprogramaBE_CRUDConectadas",
   "version": "1.0.0",
-  "description": "modelo para criação de aplicação crud utilizada na mentoria da reprograma",
+  "description": "BackEnd de uma Hamburgueria",
   "main": "index.js",
   "scripts": {
     "start": "node bin/server",
@@ -13,7 +13,7 @@
     "express",
     "api"
   ],
-  "author": "Juliane Pires",
+  "descricao": "Beatriz_Karoline&Mariana_Santos",
   "license": "GPL-3.0-or-later",
   "dependencies": {
     "cors": "^2.8.5",

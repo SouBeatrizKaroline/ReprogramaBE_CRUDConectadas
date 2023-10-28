@@ -1,4 +1,4 @@
-const model = require("../infra/database/models/Book");
+const model = require("../infra/database/models/cardapioModel");
 
 //TODO: Criar service da aplicação
 const getAll = async () => {
@@ -9,12 +9,12 @@ const getById = async (id) => {
   return await model.findById(id);
 };
 
-const createBook = async (book) => {
-  return await model.create(book);
+const createcardapioModel = async (cardapio) => {
+  return await model.create(cardapio);
 };
 
 module.exports = {
   getAll,
   getById,
-  createBook,
+  createcardapioModel,
 };

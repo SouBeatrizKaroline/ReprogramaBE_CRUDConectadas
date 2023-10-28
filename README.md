@@ -69,7 +69,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://github.com/JulianePires.png" width="100px;" alt="Foto da Pessoa no GitHub"/><br>
         <sub>
-          <b>Juliane Pires</b>
+          <b>Beatriz_Karoline&Mariana_Santos</b>
         </sub>
       </a>
     </td>

@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const bookController = require("../controllers/BookController");
+const cardapioController = require("../controllers/cardapioModelController");
 
 //TODO: Criar rotas da aplicação
-router.get("/", bookController.getBooks);
+router.get("/", cardapioController.getcardapioModels);
 
-router.get("/:id", bookController.getBookById);
+router.get("/:id", cardapioController.getcardapioModelById);
 
-router.post("/create", bookController.createBook);
+router.post("/create", cardapioController.createcardapioModel);
 
 module.exports = router;
