@@ -5,7 +5,7 @@
   "main": "bancoDeDados.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "descricao": "",
@@ -17,5 +17,8 @@
     "mongodb": "^5.4.0",
     "mongoose": "^7.1.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }

@@ -1,16 +1,19 @@
 const mongoose = require('mongoose')
-require('dotenv').config()
 
-async function conectaBancoDeDados() {
+const MONGO_URL = process.env.MONGO_URL
+
+const conectaBancoDeDados = async ()=> {
     try {
-        console.log('Conexão com o banco de dados iniciou')
-
-        await mongoose.connect(process.env.MONGO_URL)
-
+        mongoose.set('strictQuery', false)
+        mongoose.connect(MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        })
+        
         console.log('Conexão com o banco de dados feita com sucesso!')
     } catch(erro) {
         console.log(erro)
     }
 }
 
-module.exports = conectaBancoDeDados
+module.exports = {conectaBancoDeDados}
